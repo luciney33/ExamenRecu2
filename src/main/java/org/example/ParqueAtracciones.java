@@ -10,6 +10,16 @@ public class ParqueAtracciones extends CentroOcio{
 
     @Override
     public double calcularPrecioR(int edad, boolean esFestivo) {
-        return 0;
+        double precioR = getPrecio();
+        boolean esGratis = false;
+        if (edad >= 65){
+            esGratis = true;
+            precioR = 0;
+        }else if (esFestivo){
+            precioR = getPrecio() * 1.40;
+        }else {
+            System.out.println("El precio de la entrada se queda igual");
+        }
+        return precioR;
     }
 }
